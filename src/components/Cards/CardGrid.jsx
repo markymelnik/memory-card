@@ -1,11 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import Card from './Card';
 
-const CardGrid = ({ cards }) => {
+const CardGrid = ({ cards, handleCardClick }) => {
 
   return (
     <CardGridWrapper>
-      {cards}
+      {cards.map((card) => (
+        <Card key={card} num={card} handleCardClick={(() => handleCardClick(card))} />
+      ))}
     </CardGridWrapper>
   )
 }

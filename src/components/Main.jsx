@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import CardGrid from './Cards/CardGrid';
-import Card from './Cards/Card';
 
 const Main = () => {
 
@@ -14,19 +13,20 @@ const Main = () => {
   const generateShuffledCards = () => {
     const newCards = [];
     for (let i = 0; i < 8; i++) {
-      newCards.push(<Card key={i} num={i} handleCardClick={handleCardClick} />);
+      newCards.push(i);
     }
     shuffleArray(newCards);
     setCards(newCards);
   }
 
-  const handleCardClick = () => {
+  const handleCardClick = (card) => {
+    console.log(card);
     generateShuffledCards();
   }
 
   return (
     <MainWrapper>
-      <CardGrid cards={cards} />
+      <CardGrid cards={cards} handleCardClick={handleCardClick} />
     </MainWrapper>
   )
 
