@@ -1,5 +1,5 @@
 import Header from './components/Header';
-import CardGrid from './components/CardGrid';
+import Main from './components/Main';
 import styled from 'styled-components';
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
   return (
     <AppWrapper>
       <Header/>
-      <CardGrid/>
+      <Main/>
     </AppWrapper>
   )
 }
