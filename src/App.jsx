@@ -1,10 +1,22 @@
-import Card from './components/Card';
+import Header from './components/Header';
+import CardGrid from './components/CardGrid';
+import styled from 'styled-components';
 
 function App() {
 
   return (
-    <Card/>
+    <AppWrapper>
+      <Header/>
+      <CardGrid/>
+    </AppWrapper>
   )
 }
 
-export default App
+const AppWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+`
+
+export default App;
