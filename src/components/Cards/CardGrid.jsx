@@ -1,14 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import Card from './Card';
 
-const CardGrid = () => {
-
-  const cards = [];
-
-  for (let i = 0; i < 8; i++) {
-    cards.push(<Card/>);
-  }
+const CardGrid = ({ cards }) => {
 
   return (
     <CardGridWrapper>
@@ -18,12 +11,9 @@ const CardGrid = () => {
 }
 
 const CardGridWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  height: 85%;
-  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
 `
 
 export default CardGrid;
