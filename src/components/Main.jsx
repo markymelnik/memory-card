@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Header from './Header';
 import CardGrid from './Cards/CardGrid';
 
-const Main = ({ }) => {
+const Main = () => {
 
   const [cardIDs, setCardIDs] = useState([]);
   const [clickedCards, setClickedCards] = useState([]);
@@ -14,6 +14,24 @@ const Main = ({ }) => {
     generateShuffledCards();
   }, []);
   
+  const handleCardClick = (cardID) => {
+
+    if (!clickedCards.includes(cardID)) {
+      setClickedCards([...clickedCards, cardID]);
+      setCurrentScore(currentScore + 1);
+    } else {
+      setClickedCards([]);
+      setCurrentScore(0);
+    }
+    generateShuffledCards();
+  }
+
+  useEffect(() => {
+    if (currentScore > bestScore) {
+      setBestScore(currentScore);
+    }
+  }, [currentScore])
+
   const generateShuffledCards = () => {
     const newCardIDs = [];
     for (let i = 0; i < 8; i++) {
@@ -21,13 +39,6 @@ const Main = ({ }) => {
     }
     shuffleArray(newCardIDs);
     setCardIDs(newCardIDs);
-  }
-
-  const handleCardClick = (cardID) => {
-    setClickedCards([...clickedCards, cardID]);
-    setCurrentScore(currentScore + 1);
-    setBestScore(bestScore + 1);
-    generateShuffledCards();
   }
 
   return (
