@@ -1,14 +1,8 @@
-import React from 'react';
 import styled from 'styled-components';
 
 const Card = ({ cardNum, handleCardClick }) => {
-
-  return (
-    <CardWrapper onClick={handleCardClick}>
-      Card {cardNum}
-    </CardWrapper>
-  )
-}
+  return <CardWrapper onClick={handleCardClick}>Card {cardNum}</CardWrapper>;
+};
 
 const CardWrapper = styled.div`
   display: flex;
@@ -24,6 +18,6 @@ const CardWrapper = styled.div`
     background-color: lightgrey;
     cursor: pointer;
   }
-`
+`;
 
 export default Card;
