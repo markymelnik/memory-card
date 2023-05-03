@@ -11,7 +11,6 @@ const CardWrapper = styled.div`
   align-items: center;
   width: 250px;
   height: 325px;
-  margin: 20px;
   border: 1px solid black;
 
   &:hover {
