@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 
-const Card = ({ cardNum, handleCardClick }) => {
-  return <CardWrapper onClick={handleCardClick}>Card {cardNum}</CardWrapper>;
+const Card = ({ image, handleCardClick }) => {
+  return (
+  <CardWrapper 
+    onClick={handleCardClick} 
+    style={{ backgroundImage: `url(${image})`}}>
+  </CardWrapper>
+  )
 };
 
 const CardWrapper = styled.div`
@@ -12,6 +17,8 @@ const CardWrapper = styled.div`
   width: 250px;
   height: 325px;
   border: 1px solid black;
+  background-size: cover;
+  background-position: center;
 
   &:hover {
     background-color: lightgrey;

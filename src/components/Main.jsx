@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import CatImages from '../assets/catImages';
 import Header from './Header';
 import CardGrid from './Cards/CardGrid';
 import shuffleArray from '../utils/shuffleArray';
@@ -43,7 +44,7 @@ const Main = () => {
   return (
     <MainWrapper>
       <Header currentScore={currentScore} bestScore={bestScore} />
-      <CardGrid cardIDs={cardIDs} handleCardClick={handleCardClick} />
+      <CardGrid cardIDs={cardIDs} images={CatImages} handleCardClick={handleCardClick} />
     </MainWrapper>
   );
 };

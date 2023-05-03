@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 import Card from './Card';
 
-const CardGrid = ({ cardIDs, handleCardClick }) => {
+const CardGrid = ({ cardIDs, images, handleCardClick }) => {
   return (
     <MainBodyWrapper>
       <CardGridWrapper>
         {cardIDs.map((cardID) => (
           <Card
             key={cardID}
-            cardNum={cardID}
+            image={images[cardID]}
             handleCardClick={() => handleCardClick(cardID)}
           />
         ))}
