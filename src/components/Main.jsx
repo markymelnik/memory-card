@@ -1,32 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import Header from './Header';
 import CardGrid from './Cards/CardGrid';
 
-const Main = () => {
+const Main = ({ }) => {
 
-  const [cards, setCards] = useState([]);
+  const [cardIDs, setCardIDs] = useState([]);
+  const [clickedCards, setClickedCards] = useState([]);
+  const [currentScore, setCurrentScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
 
   useEffect(() => {
     generateShuffledCards();
   }, []);
   
   const generateShuffledCards = () => {
-    const newCards = [];
+    const newCardIDs = [];
     for (let i = 0; i < 8; i++) {
-      newCards.push(i);
+      newCardIDs.push(i);
     }
-    shuffleArray(newCards);
-    setCards(newCards);
+    shuffleArray(newCardIDs);
+    setCardIDs(newCardIDs);
   }
 
-  const handleCardClick = (card) => {
-    console.log(card);
+  const handleCardClick = (cardID) => {
+    setClickedCards([...clickedCards, cardID]);
+    setCurrentScore(currentScore + 1);
+    setBestScore(bestScore + 1);
     generateShuffledCards();
   }
 
   return (
     <MainWrapper>
-      <CardGrid cards={cards} handleCardClick={handleCardClick} />
+      <Header currentScore={currentScore} bestScore={bestScore} />
+      <CardGrid cardIDs={cardIDs} handleCardClick={handleCardClick} />
     </MainWrapper>
   )
 
@@ -43,8 +50,8 @@ const shuffleArray = (arr) => {
 
 const MainWrapper = styled.div`
   display: flex;
-  justify-content: center;
-  height: 85%;
+  flex-direction: column;
+  height: 100%;
   width: 100%;
 `
 

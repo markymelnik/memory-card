@@ -1,12 +1,12 @@
-import ScoreBoard from './Score/ScoreBoard';
 import styled from 'styled-components';
+import ScoreBoard from './Score/ScoreBoard';
 
-const Header = () => {
+const Header = ({ currentScore, bestScore }) => {
 
   return (
     <HeaderWrapper>
       <Title>Memory Card Game</Title>
-      <ScoreBoard/>
+      <ScoreBoard currentScore={currentScore} bestScore={bestScore} />
     </HeaderWrapper>
   )
 }

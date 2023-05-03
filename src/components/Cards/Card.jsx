@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Card = ({ num, handleCardClick }) => {
+const Card = ({ cardNum, handleCardClick }) => {
 
   return (
     <CardWrapper onClick={handleCardClick}>
-      Card {num}
+      Card {cardNum}
     </CardWrapper>
   )
 }

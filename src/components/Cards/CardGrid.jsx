@@ -2,12 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import Card from './Card';
 
-const CardGrid = ({ cards, handleCardClick }) => {
+const CardGrid = ({ cardIDs, handleCardClick }) => {
 
   return (
     <CardGridWrapper>
-      {cards.map((card) => (
-        <Card key={card} num={card} handleCardClick={(() => handleCardClick(card))} />
+      {cardIDs.map((cardID) => (
+        <Card key={cardID} cardNum={cardID} handleCardClick={(() => handleCardClick(cardID))} />
       ))}
     </CardGridWrapper>
   )
