@@ -16,13 +16,20 @@ const CardWrapper = styled.div`
   align-items: center;
   width: 250px;
   height: 325px;
-  border: 1px solid black;
+  border: 2px solid black;
   background-size: cover;
   background-position: center;
+  border-radius: 25px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 
   &:hover {
-    background-color: lightgrey;
+    opacity: 80%;
     cursor: pointer;
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
   }
 `;
 
